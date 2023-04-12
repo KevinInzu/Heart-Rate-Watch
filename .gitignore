@@ -17,3 +17,15 @@
 /ArduinoOutput/*.bin
 /ArduinoOutput/*.lastused
 !/ArduinoOutput/*.map
+ArduinoOutput/libraries/SparkFun_MAX3010x_Pulse_and_Proximity_Sensor_Library/heartRate.cpp.d
+ArduinoOutput/libraries/SparkFun_MAX3010x_Pulse_and_Proximity_Sensor_Library/heartRate.cpp.o
+ArduinoOutput/libraries/SparkFun_MAX3010x_Pulse_and_Proximity_Sensor_Library/MAX30105.cpp.d
+ArduinoOutput/libraries/SparkFun_MAX3010x_Pulse_and_Proximity_Sensor_Library/MAX30105.cpp.o
+ArduinoOutput/libraries/SparkFun_MAX3010x_Pulse_and_Proximity_Sensor_Library/spo2_algorithm.cpp.d
+ArduinoOutput/libraries/SparkFun_MAX3010x_Pulse_and_Proximity_Sensor_Library/spo2_algorithm.cpp.o
+ArduinoOutput/libraries/Wire/Wire.cpp.d
+ArduinoOutput/libraries/Wire/Wire.cpp.o
+ArduinoOutput/sketch/Src.ino.cpp.d
+ArduinoOutput/sketch/Src.ino.cpp.o
+ArduinoOutput/Src.ino.elf
+ArduinoOutput/Src.ino.map
