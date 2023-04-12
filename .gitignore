@@ -2,7 +2,7 @@
 !.vscode/launch.json
 !ArduinoOutput/
 !ArduinoOutput
-/ArduinoOutput/*
+!/ArduinoOutput/*
 *.cpp
 !/ArduinoOutput/*.hex
 !/ArduinoOutput/*.elf
