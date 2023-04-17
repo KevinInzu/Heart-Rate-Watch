@@ -35,8 +35,6 @@ void setup()
 void loop()
 {
   long irValue = particleSensor.getIR();
-
-
   beatAvg =getBPM(irValue);
 
   Serial.print(", Avg BPM=");
