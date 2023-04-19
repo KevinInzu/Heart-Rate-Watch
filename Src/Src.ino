@@ -10,6 +10,9 @@ MAX30105 particleSensor;
 #define SAMPLING 5      // if you want to see heart beat more precisely, set SAMPLING to 1
 #define FINGER_ON 30000 // if red signal is lower than this, it indicates your finger is not on the sensor
 
+float new_data;
+float prev_data;
+
 void setup()
 {
   Serial.begin(115200);
@@ -20,13 +23,13 @@ void setup()
     Serial.println("MAX30102 was not found. Please check wiring/power/solder jumper at MH-ET LIVE MAX30102 board. ");
   }
 
-  byte ledBrightness = 0x7F; 
-  byte sampleAverage = 4;    
-  byte ledMode = 2;          
+  byte ledBrightness = 0x7F;
+  byte sampleAverage = 4;
+  byte ledMode = 2;
 
-  int sampleRate = 200; 
-  int pulseWidth = 411; 
-  int adcRange = 16384; 
+  int sampleRate = 200;
+  int pulseWidth = 411;
+  int adcRange = 16384;
 
   particleSensor.setup(ledBrightness, sampleAverage, ledMode, sampleRate, pulseWidth, adcRange);
 }
@@ -34,10 +37,15 @@ void loop()
 {
   // delay(60000);
   long irValue = particleSensor.getIR();
-  if (irValue > 50000)
+
+  prev_data = new_data;
+  new_data = getBPM(irValue);
+
+
+  if (irValue > 50000 && getBPM(irValue) != 0 && new_data != prev_data)
   {
     // Serial.print("Avg BPM: ");
-    Serial.print(getBPM(irValue));
+    Serial.print(new_data);
     Serial.print(" , ");
 
     // Serial.print("SP02: ");
@@ -48,6 +56,5 @@ void loop()
     float temperatureF = particleSensor.readTemperatureF();
     // Serial.print("TemperatureF: ");
     Serial.println(temperatureF, 4);
-
   }
 }
