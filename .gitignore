@@ -16,3 +16,5 @@ ArduinoOutput/sketch/Src.ino.cpp.o
 ArduinoOutput/Src.ino.elf
 ArduinoOutput/Src.ino.map
 Src/SPO2/tempCodeRunnerFile.h
+Src/ScrollingWindow/ScrollingWindow.exe
+Src/ScrollingWindow/tempCodeRunnerFile.cpp
