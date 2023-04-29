@@ -10,9 +10,6 @@
 
 MAX30105 particleSensor;
 
-#define TIMETOBOOT 3000 // wait for this time(msec) to output SpO2
-#define SCALE 88.0      // adjust to display heart beat and SpO2 in the same scale
-#define SAMPLING 5      // if you want to see heart beat more precisely, set SAMPLING to 1
 #define FINGER_ON 50000 // if red signal is lower than this, it indicates your finger is not on the sensor
 
 int new_data;
@@ -22,7 +19,7 @@ deque<int> window1;
 int window_size1 = 4;
 int threshold1 = 6;
 
-vector<float> bpm;
+vector<int> bpm;
 
 void setup()
 {
@@ -58,8 +55,8 @@ void loop()
     Serial.println(new_data);
     // Serial.print(" , ");
 
-    // bpm.push_back(new_data);
-    maintain_window(new_data, window1, window_size1, threshold1);
+    bpm.push_back(new_data);
+    maintain_window(bpm,new_data, window1, window_size1, threshold1);
     // // Serial.print("SP02: ");
     // Serial.print(getSPO2(particleSensor));
     // Serial.print(" , ");
@@ -71,6 +68,14 @@ void loop()
   }
   else if ( irValue < FINGER_ON) //TODO: Change when user prompts another reading
   {
+    Serial.println("New BPM values: ");
+    for (int nums : bpm)
+    {
+      Serial.print(nums);
+      Serial.print(" , ");
+    }
+    Serial.println();
+    bpm.clear();
     window1.clear();
   }
 }
